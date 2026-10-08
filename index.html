@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cephora Hair | Salon de Coiffure pour Femmes</title>
+  
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary-gold: #D4AF37;
+      --rose-gold: #e0a96d;
+      --bg-dark: #121212;
+      --bg-card: #1c1c1c;
+      --text-light: #f8f9fa;
+      --text-muted: #b0b0b0;
+      --accent-pink: #d87093;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-light);
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, .font-serif {
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    /* Navbar */
+    .navbar {
+      background-color: rgba(18, 18, 18, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+    }
+
+    .navbar-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--primary-gold) !important;
+      letter-spacing: 2px;
+    }
+
+    .nav-link {
+      color: var(--text-light) !important;
+      font-weight: 500;
+      transition: color 0.3s ease;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+    }
+
+    .nav-link:hover {
+      color: var(--primary-gold) !important;
+    }
+
+    /* Hero Section */
+    .hero-section {
+      padding: 140px 0 80px;
+      background: radial-gradient(circle at top right, rgba(216, 112, 147, 0.15), transparent 50%),
+                  radial-gradient(circle at bottom left, rgba(212, 175, 55, 0.15), transparent 50%);
+    }
+
+    .hero-title {
+      font-size: 3.8rem;
+      font-weight: 700;
+      line-height: 1.1;
+      background: linear-gradient(45deg, #fff, var(--rose-gold), var(--primary-gold));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .btn-gold {
+      background: linear-gradient(135deg, var(--primary-gold), var(--rose-gold));
+      color: #000;
+      font-weight: 600;
+      padding: 12px 30px;
+      border-radius: 30px;
+      border: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+    }
+
+    .btn-gold:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
+      color: #000;
+    }
+
+    .btn-outline-gold {
+      border: 2px solid var(--primary-gold);
+      color: var(--primary-gold);
+      font-weight: 600;
+      padding: 10px 28px;
+      border-radius: 30px;
+      transition: all 0.3s ease;
+    }
+
+    .btn-outline-gold:hover {
+      background-color: var(--primary-gold);
+      color: #000;
+    }
+
+    /* Image Wrapper Hero */
+    .hero-img-wrapper {
+      position: relative;
+      border-radius: 20px;
+      padding: 10px;
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.5), rgba(216, 112, 147, 0.3));
+    }
+
+    .hero-img-wrapper img {
+      border-radius: 15px;
+      width: 100%;
+      height: 480px;
+      object-fit: cover;
+    }
+
+    .badge-experience {
+      position: absolute;
+      bottom: -20px;
+      left: -20px;
+      background: var(--bg-card);
+      border: 1px solid var(--primary-gold);
+      padding: 15px 25px;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+
+    /* Cards & Services */
+    .service-card {
+      background-color: var(--bg-card);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 15px;
+      padding: 30px;
+      transition: all 0.3s ease;
+      height: 100%;
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--primary-gold);
+      box-shadow: 0 10px 25px rgba(212, 175, 55, 0.15);
+    }
+
+    .service-icon {
+      font-size: 2.5rem;
+      color: var(--rose-gold);
+      margin-bottom: 20px;
+    }
+
+    .price-tag {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--primary-gold);
+    }
+
+    /* SECTION MES RÉALISATIONS (GALERIE) */
+    .filter-btn {
+      background-color: var(--bg-card);
+      color: var(--text-light);
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      padding: 8px 22px;
+      border-radius: 25px;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+      margin: 3px;
+    }
+
+    .filter-btn.active, .filter-btn:hover {
+      background: linear-gradient(135deg, var(--primary-gold), var(--rose-gold));
+      color: #000;
+      font-weight: 600;
+      border-color: transparent;
+    }
+
+    .gallery-item {
+      position: relative;
+      border-radius: 15px;
+      overflow: hidden;
+      cursor: pointer;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.4s ease;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.2) 60%, transparent 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 20px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-5px);
+      border-color: var(--primary-gold);
+      box-shadow: 0 12px 30px rgba(212, 175, 55, 0.25);
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.08);
+    }
+
+    .gallery-item:hover .gallery-overlay {
+      opacity: 1;
+    }
+
+    /* Formulaire */
+    .booking-section {
+      background: linear-gradient(180deg, var(--bg-dark), #181818);
+      border-top: 1px solid rgba(212, 175, 55, 0.1);
+      border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+    }
+
+    .form-control, .form-select {
+      background-color: #252525;
+      border: 1px solid #333;
+      color: #fff;
+      padding: 12px 15px;
+      border-radius: 8px;
+    }
+
+    .form-control:focus, .form-select:focus {
+      background-color: #2b2b2b;
+      border-color: var(--primary-gold);
+      color: #fff;
+      box-shadow: 0 0 0 0.25rem rgba(212, 175, 55, 0.25);
+    }
+
+    /* Testimonials */
+    .testimonial-card {
+      background-color: var(--bg-card);
+      border-left: 3px solid var(--primary-gold);
+      padding: 25px;
+      border-radius: 0 12px 12px 0;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #0a0a0a;
+      border-top: 1px solid #222;
+    }
+
+    .social-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: #222;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary-gold);
+      margin-right: 10px;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .social-icon:hover {
+      background-color: var(--primary-gold);
+      color: #000;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">CEPHORA HAIR</a>
+      <button class="navbar-toggler navbar-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto align-items-center">
+          <li class="nav-item"><a class="nav-link" href="#accueil">Accueil</a></li>
+          <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="#realisations">Mes Réalisations</a></li>
+          <li class="nav-item"><a class="nav-link" href="#avis">Avis</a></li>
+          <li class="nav-item ms-lg-3">
+            <a class="btn btn-gold btn-sm" href="#reservation">Prendre RDV</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="accueil" class="hero-section">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6">
+          <span class="text-uppercase tracking-wider text-warning fw-semibold small">Salon de Coiffure Féminin Privé</span>
+          <h1 class="hero-title my-3">Révélez la beauté unique de vos cheveux.</h1>
+          <p class="lead text-white mb-4">
+            Bienvenue chez <strong>Cephora Hair</strong>. Nous vous offrons une expérience capillaire d'exception : soins profonds, coiffages tendance, tresses artistiques et colorations sur-mesure dans un cadre chaleureux et raffiné.
+          </p>
+          <div class="d-flex flex-wrap gap-3 mb-4">
+            <a href="#reservation" class="btn btn-gold"><i class="fa-regular fa-calendar-check me-2"></i>Réserver une séance</a>
+            <a href="#realisations" class="btn btn-outline-gold"><i class="fa-solid fa-images me-2"></i>Voir le Lookbook</a>
+          </div>
+          <div class="d-flex align-items-center gap-4 pt-3 border-top border-secondary">
+            <div>
+              <h4 class="mb-0 text-warning">100%</h4>
+              <small class="text-muted">Satisfaction Client</small>
+            </div>
+            <div>
+              <h4 class="mb-0 text-warning">+500</h4>
+              <small class="text-muted">Clientes Coiffées</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="hero-img-wrapper">
+            <img id="salonImage" src="https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&w=800&q=80" alt="Salon Cephora Hair">
+            <div class="badge-experience">
+              <div class="d-flex align-items-center gap-3">
+                <i class="fa-solid fa-crown fs-2 text-warning"></i>
+                <div>
+                  <h6 class="mb-0 text-white fw-bold">Expertise & Élégance</h6>
+                  <small class="text-muted">Soins capillaires haut de gamme</small>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="text-center mt-4">
+            <label for="imgUpload" class="btn btn-sm btn-outline-secondary">
+              <i class="fa-solid fa-upload me-1"></i> Changer la photo d'accueil
+            </label>
+            <input type="file" id="imgUpload" accept="image/*" class="d-none">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services & Tarifs -->
+  <section id="services" class="py-5">
+    <div class="container py-4">
+      <div class="text-center mb-5">
+        <h2 class="display-5 text-warning">Nos Services & Tarifs</h2>
+        <p class="text-muted">Des prestations adaptées à tous les types de cheveux (crépus, bouclés, lisses).</p>
+      </div>
+
+      <div class="row g-4">
+        <!-- Service 1 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="service-card">
+            <div class="service-icon"><i class="fa-solid fa-scissors"></i></div>
+            <h3>Coupe & Brushing</h3>
+            <p class="text-muted">Shampooing traitant, coupe sur-mesure et brushing structuré pour sublimer vos traits.</p>
+            <div class="d-flex justify-content-between align-items-center mt-4 pt-3 border-top border-secondary">
+              <span class="price-tag">À partir de 15.000 FCFA</span>
+              <a href="#reservation" class="btn btn-sm btn-outline-gold">Choisir</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Service 2 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="service-card">
+            <div class="service-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+            <h3>Tresses & Tissages</h3>
+            <p class="text-muted">Knotless braids, Fulani braids, tissage ouvert/fermé réalisés avec précision et soin.</p>
+            <div class="d-flex justify-content-between align-items-center mt-4 pt-3 border-top border-secondary">
+              <span class="price-tag">À partir de 20.000 FCFA</span>
+              <a href="#reservation" class="btn btn-sm btn-outline-gold">Choisir</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Service 3 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="service-card">
+            <div class="service-icon"><i class="fa-solid fa-pump-soap"></i></div>
+            <h3>Soins Hydratants & Protéinés</h3>
+            <p class="text-muted">Traitement profond nourrissant pour restaurer la brillance et la vitalité de vos cheveux.</p>
+            <div class="d-flex justify-content-between align-items-center mt-4 pt-3 border-top border-secondary">
+              <span class="price-tag">À partir de 25.000 FCFA</span>
+              <a href="#reservation" class="btn btn-sm btn-outline-gold">Choisir</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- SECTION : MES RÉALISATIONS (LOOKBOOK)     -->
+  <!-- ========================================== -->
+  <section id="realisations" class="py-5 bg-black">
+    <div class="container py-4">
+      <div class="text-center mb-4">
+        <span class="text-uppercase text-warning fw-bold tracking-wider">Lookbook</span>
+        <h2 class="display-5 text-light mt-1">Mes Réalisations</h2>
+        <p class="text-muted">Découvrez en images le savoir-faire et la créativité de Cephora Hair.</p>
+      </div>
+
+      <!-- Filtres -->
+      <div class="d-flex flex-wrap justify-content-center mb-5">
+        <button class="filter-btn active" onclick="filterGallery('all')">Tout voir</button>
+        <button class="filter-btn" onclick="filterGallery('tresses')">Tresses & Tissages</button>
+        <button class="filter-btn" onclick="filterGallery('coloration')">Colorations</button>
+        <button class="filter-btn" onclick="filterGallery('evenement')">Chignons & Mariages</button>
+        <button class="filter-btn" onclick="filterGallery('soins')">Soins & Brushing</button>
+      </div>
+
+      <!-- Grille des réalisations -->
+      <div class="row g-4" id="galleryGrid">
+        
+        <!-- Photo 1 -->
+        <div class="col-md-6 col-lg-4 gallery-box" data-category="tresses">
+          <div class="gallery-item" onclick="openModal('https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=800&q=80', 'Knotless Braids Bohème')">
+            <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=800&q=80" alt="Knotless Braids">
+            <div class="gallery-overlay">
+              <span class="badge bg-warning text-dark w-auto d-inline-block mb-2">Tresses</span>
+              <h5 class="text-white mb-1">Knotless Braids Bohème</h5>
+              <small class="text-light"><i class="fa-solid fa-magnifying-glass-plus me-1"></i> Cliquez pour agrandir</small>
+            </div>
+          </div>
+        </div>
+
+        <!-- Photo 2 -->
+        <div class="col-md-6 col-lg-4 gallery-box" data-category="coloration">
+          <div class="gallery-item" onclick="openModal('https://images.unsplash.com/photo-1560869713-7d0a29430803?auto=format&fit=crop&w=800&q=80', 'Balayage Miel & Caramel')">
+            <img src="https://images.unsplash.com/photo-1560869713-7d0a29430803?auto=format&fit=crop&w=800&q=80" alt="Coloration Balayage">
+            <div class="gallery-overlay">
+              <span class="badge bg-warning text-dark w-auto d-inline-block mb-2">Coloration</span>
+              <h5 class="text-white mb-1">Balayage Miel & Caramel</h5>
+              <small class="text-light"><i class="fa-solid fa-magnifying-glass-plus me-1"></i> Cliquez pour agrandir</small>
+            </div>
+          </div>
+        </div>
+
+        <!-- Photo 3 -->
+        <div class="col-md-6 col-lg-4 gallery-box" data-category="evenement">
+          <div class="gallery-item" onclick="openModal('https://images.unsplash.com/photo-1519699047748-de8e457a634e?auto=format&fit=crop&w=800&q=80', 'Chignon Haut Sophistiqué')">
+            <img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?auto=format&fit=crop&w=800&q=80" alt="Chignon Mariage">
+            <div class="gallery-overlay">
+              <span class="badge bg-warning text-dark w-auto d-inline-block mb-2">Mariage / Événement</span>
+              <h5 class="text-white mb-1">Chignon Haut Sophistiqué</h5>
+              <small class="text-light"><i class="fa-solid fa-magnifying-glass-plus me-1"></i> Cliquez pour agrandir</small>
+            </div>
+          </div>
+        </div>
+
+        <!-- Photo 4 -->
+        <div class="col-md-6 col-lg-4 gallery-box" data-category="tresses">
+          <div class="gallery-item" onclick="openModal('https://images.unsplash.com/photo-1605497788044-5a32c7078486?auto=format&fit=crop&w=800&q=80', 'Fulani Braids & Perles')">
+            <img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?auto=format&fit=crop&w=800&q=80" alt="Fulani Braids">
+            <div class="gallery-overlay">
+              <span class="badge bg-warning text-dark w-auto d-inline-block mb-2">Tresses</span>
+              <h5 class="text-white mb-1">Fulani Braids & Perles</h5>
+              <small class="text-light"><i class="fa-solid fa-magnifying-glass-plus me-1"></i> Cliquez pour agrandir</small>
+            </div>
+          </div>
+        </div>
+
+        <!-- Photo 5 -->
+        <div class="col-md-6 col-lg-4 gallery-box" data-category="soins">
+          <div class="gallery-item" onclick="openModal('https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&w=800&q=80', 'Soin Protéiné & Brushing')">
+            <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&w=800&q=80" alt="Soin Brushing">
+            <div class="gallery-overlay">
+              <span class="badge bg-warning text-dark w-auto d-inline-block mb-2">Soins</span>
+              <h5 class="text-white mb-1">Soin Protéiné & Brushing</h5>
+              <small class="text-light"><i class="fa-solid fa-magnifying-glass-plus me-1"></i> Cliquez pour agrandir</small>
+            </div>
+          </div>
+        </div>
+
+        <!-- Photo 6 -->
+        <div class="col-md-6 col-lg-4 gallery-box" data-category="coloration">
+          <div class="gallery-item" onclick="openModal('https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?auto=format&fit=crop&w=800&q=80', 'Ombré Hair Rouge Profond')">
+            <img src="https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?auto=format&fit=crop&w=800&q=80" alt="Ombré Hair">
+            <div class="gallery-overlay">
+              <span class="badge bg-warning text-dark w-auto d-inline-block mb-2">Coloration</span>
+              <h5 class="text-white mb-1">Ombré Hair Rouge Profond</h5>
+              <small class="text-light"><i class="fa-solid fa-magnifying-glass-plus me-1"></i> Cliquez pour agrandir</small>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Option d'importation de vos propres photos de réalisation -->
+      <div class="text-center mt-5 p-4 rounded-3 bg-dark border border-secondary">
+        <h5 class="text-warning mb-2"><i class="fa-solid fa-camera me-2"></i>Vous souhaitez afficher vos propres réalisations ?</h5>
+        <p class="text-muted small mb-3">Téléversez une photo depuis votre téléphone ou ordinateur pour la tester directement dans la galerie ci-dessus.</p>
+        <label for="galleryUpload" class="btn btn-outline-gold btn-sm">
+          <i class="fa-solid fa-plus me-1"></i> Ajouter une réalisation
+        </label>
+        <input type="file" id="galleryUpload" accept="image/*" class="d-none">
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Modal pour Agrandir l'image -->
+  <div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content bg-dark border-warning">
+        <div class="modal-header border-secondary">
+          <h5 class="modal-title text-warning" id="modalTitle">Réalisation Cephora Hair</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fermer"></button>
+        </div>
+        <div class="modal-body text-center p-0">
+          <img id="modalImg" src="" class="img-fluid rounded-bottom" style="max-height: 80vh; object-fit: contain;">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section Réservation -->
+  <section id="reservation" class="booking-section py-5">
+    <div class="container py-4">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="card bg-dark border-secondary p-4 p-md-5">
+            <div class="text-center mb-4">
+              <h2 class="text-warning">Prendre Rendez-vous</h2>
+              <p class="text-muted">Remplissez le formulaire ci-dessous pour réserver votre créneau.</p>
+            </div>
+
+            <form id="bookingForm">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label text-light">Nom & Prénom</label>
+                  <input type="text" class="form-control" placeholder="Ex: Sarah Koné" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label text-light">Téléphone (WhatsApp)</label>
+                  <input type="tel" class="form-control" placeholder="+242 06 ... / +229 ..." required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label text-light">Service désiré</label>
+                  <select class="form-select" required>
+                    <option value="" selected disabled>Choisissez une prestation</option>
+                    <option>Coupe & Brushing</option>
+                    <option>Tresses & Tissages</option>
+                    <option>Soins Hydratants & Protéinés</option>
+                    <option>Coloration & Balayage</option>
+                    <option>Coiffure Événementielle / Mariage</option>
+                  </select>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label text-light">Date souhaitée</label>
+                  <input type="date" class="form-control" required>
+                </div>
+                <div class="col-12">
+                  <label class="form-label text-light">Notes ou précisions particulières</label>
+                  <textarea class="form-control" rows="3" placeholder="Précisez la longueur de vos cheveux ou vos besoins spécifiques..."></textarea>
+                </div>
+                <div class="col-12 text-center mt-4">
+                  <button type="submit" class="btn btn-gold btn-lg w-100">
+                    <i class="fa-solid fa-paper-plane me-2"></i> Confirmer ma Réservation
+                  </button>
+                </div>
+              </div>
+            </form>
+
+            <div id="alertSuccess" class="alert alert-success mt-4 d-none" role="alert">
+              <i class="fa-solid fa-circle-check me-2"></i> Votre demande de rendez-vous a été envoyée avec succès ! Nous vous contacterons sous peu pour la confirmation.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Avis Clients -->
+  <section id="avis" class="py-5">
+    <div class="container py-4">
+      <div class="text-center mb-5">
+        <h2 class="display-5 text-warning">Ce que disent nos clientes</h2>
+        <p class="text-muted">Leur satisfaction est notre plus belle réussite.</p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="testimonial-card">
+            <div class="text-warning mb-2">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="text-light italic">"Mes tresses knotless sont d'une légèreté incroyable et super bien définies. L'équipe est très douce !"</p>
+            <h6 class="text-warning mb-0 fw-bold">— Aminata M.</h6>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="testimonial-card">
+            <div class="text-warning mb-2">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="text-light italic">"Le soin protéiné a sauvé mes cheveux cassants. Je suis sortie du salon avec des cheveux si doux !"</p>
+            <h6 class="text-warning mb-0 fw-bold">— Grace K.</h6>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="testimonial-card">
+            <div class="text-warning mb-2">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="text-light italic">"Coiffure de mariage au top. Le chignon a tenu toute la nuit. Merci Cephora !"</p>
+            <h6 class="text-warning mb-0 fw-bold">— Sandrine T.</h6>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-5">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4">
+          <h3 class="text-warning mb-3">CEPHORA HAIR</h3>
+          <p class="text-muted">Votre salon de coiffure dédié à l'élégance et au soin des cheveux féminins.</p>
+          <div>
+            <a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="social-icon"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="#" class="social-icon"><i class="fa-brands fa-whatsapp"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <h5 class="text-light mb-3">Horaires d'ouverture</h5>
+          <ul class="list-unstyled text-muted">
+            <li class="mb-2">Mardi - Samedi : 09h00 - 19h00</li>
+            <li class="mb-2">Dimanche : 10h00 - 16h00 (Sur RDV)</li>
+            <li class="mb-2">Lundi : Fermé</li>
+          </ul>
+        </div>
+        <div class="col-lg-4">
+          <h5 class="text-light mb-3">Contact & Localisation</h5>
+          <p class="text-muted mb-2"><i class="fa-solid fa-location-dot me-2 text-warning"></i> En ville, Rue des Élégantes</p>
+          <p class="text-muted mb-2"><i class="fa-solid fa-phone me-2 text-warning"></i> +242 06 000 0000</p>
+          <p class="text-muted"><i class="fa-solid fa-envelope me-2 text-warning"></i> contact@cephora-hair.com</p>
+        </div>
+      </div>
+      <hr class="border-secondary my-4">
+      <div class="text-center text-muted small">
+        &copy; 2026 Cephora Hair. Tous droits réservés.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap 5 JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- JavaScript Personnalisé -->
+  <script>
+    // 1. Filtrage de la galerie Mes Réalisations
+    function filterGallery(category) {
+      const items = document.querySelectorAll('.gallery-box');
+      const buttons = document.querySelectorAll('.filter-btn');
+
+      // Gestion de la classe active sur les boutons
+      buttons.forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+
+      // Affichage / Masquage des éléments
+      items.forEach(item => {
+        if (category === 'all' || item.getAttribute('data-category') === category) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+
+    // 2. Ouverture de l'image en grand (Modal)
+    function openModal(imgSrc, title) {
+      document.getElementById('modalImg').src = imgSrc;
+      document.getElementById('modalTitle').innerText = title;
+      const myModal = new bootstrap.Modal(document.getElementById('imageModal'));
+      myModal.show();
+    }
+
+    // 3. Upload d'une photo d'accueil en direct
+    document.getElementById('imgUpload').addEventListener('change', function(e) {
+      const file = e.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(event) {
+          document.getElementById('salonImage').src = event.target.result;
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+
+    // 4. Upload dynamique d'une nouvelle réalisation dans la galerie
+    document.getElementById('galleryUpload').addEventListener('change', function(e) {
+      const file = e.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(event) {
+          const galleryGrid = document.getElementById('galleryGrid');
+          const newCol = document.createElement('div');
+          newCol.className = 'col-md-6 col-lg-4 gallery-box';
+          newCol.setAttribute('data-category', 'tresses');
+          newCol.innerHTML = `
+            <div class="gallery-item" onclick="openModal('${event.target.result}', 'Nouvelle Réalisation')">
+              <img src="${event.target.result}" alt="Nouvelle réalisation">
+              <div class="gallery-overlay">
+                <span class="badge bg-warning text-dark w-auto d-inline-block mb-2">Ajouté</span>
+                <h5 class="text-white mb-1">Nouvelle Réalisation</h5>
+                <small class="text-light"><i class="fa-solid fa-magnifying-glass-plus me-1"></i> Cliquez pour agrandir</small>
+              </div>
+            </div>
+          `;
+          galleryGrid.prepend(newCol);
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+
+    // 5. Soumission du formulaire de réservation
+    document.getElementById('bookingForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      document.getElementById('alertSuccess').classList.remove('d-none');
+      this.reset();
+    });
+  </script>
+</body>
+</html>
